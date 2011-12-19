@@ -1,0 +1,19 @@
+setup: &setup
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password:
+  pool: 5
+  encoding: unicode
+
+development:
+  database: ultimate_development
+  <<: *setup
+
+test:
+  database: ultimate_test
+  <<: *setup
+
+production:
+  database: ultimate_production
+  <<: *setup
