@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title Ultimate
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
+    = csrf_meta_tags
+
+  %body{:class => css_layout_class}
+    .l-page
+      = render "flashes"
+      = render "header"
+      .l-page__content
+        = yield
+      = render "footer"

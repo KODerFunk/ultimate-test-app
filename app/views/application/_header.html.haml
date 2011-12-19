@@ -1,0 +1,10 @@
+%header.l-page__header
+  .devise-links{:class => ("signed-in" if signed_in?)}
+    - if signed_in?
+      = link_to_menu_item current_user.email, current_user_path, :class => "jump cacheable", :separator => false
+      = link_to_menu_item t('devise.sessions.destroy'), destroy_user_session_path
+      -# if current_user.role? :admin
+        = link_to_menu_item t('menu.admin'), admin_path
+    - else
+      = link_to_menu_item t('devise.sessions.title'), new_user_session_path, :class => "sign-in jump", :separator => false
+      = link_to_menu_item t('devise.registrations.title'), new_user_registration_path, :class => "sign-up jump"

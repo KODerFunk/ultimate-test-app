@@ -1,5 +1,9 @@
 Ultimate::Application.routes.draw do
 
+  devise_for :users
+  resources :users
+  resource :user, :as => :current_user, :controller => :current_user, :only => [:show, :edit, :update]
+
   root :to => 'main#index'
 
   # The priority is based upon order of creation:

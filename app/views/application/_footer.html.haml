@@ -1,0 +1,10 @@
+%footer.l-page__footer
+  .copyright
+    &copy;
+    = link_to "KODer (Karpunin Dmitry)", "https://github.com/KODerFunk", :target => "_blank"
+    = " / "
+    = link_to "Evrone company", "http://envrone.com/", :target => "_blank"
+    = "2011-#{Date.current.year}"
+  -# %nav.menu
+    - Page.all.each do |page|
+      = link_to t("footer.#{page.permalink}"), "/#{page.permalink}", :class => "jump cacheable"

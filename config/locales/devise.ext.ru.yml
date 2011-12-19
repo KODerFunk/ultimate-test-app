@@ -1,0 +1,35 @@
+# TODO do localize devise views
+ru:
+  devise:
+    users:
+      user:
+        updated: "Ваша учётная запись изменена."
+        inactive_signed_up: "Добро пожаловать! Вы успешно зарегистрировались. Но пока вы не можете войти в систему, т.к. ваша учётная запись %{reason}."
+    sessions:
+      title: "Вход"
+      destroy: "Выход"
+      submit: "Войти"
+      not_confirmed: "Не получили инструкции?"
+      send_confirmation_instructions: "Отправить инструкции"
+    passwords:
+      forgot_password: "Забыли пароль?"
+      change_password: "Сменить пароль"
+      didnt_receive_confirmation: "Не получили инструкции?"
+      send_restore_password_instructions: "Отправить инструкции"
+      password_field: "Новый пароль"
+      password_confirmation_field: "Подтверждение нового пароля"
+    registrations:
+      title: "Регистрация"
+      submit: "Зарегистрироваться"
+      generate_password: "Сгенерировать пароль"
+      self_set_password: "Я хочу задать пароль самостоятельно"
+      has_not: "У вас еще нет аккаунта на сайте netex.me?"
+      has_already: "У вас уже есть аккаунт на сайте netex.me?"
+    mailer:
+      hello: "Здравствуйте"
+      someone_requested: "Кто-то запросил инструкции по сбросу пароля. Чтобы сделать это, перейдите по ссылке ниже"
+      change_password: "Изменить мой пароль"
+      ignore_if_not_requested: "Если вы не запрашивали смену пароля - просто проигнорируйте это письмо."
+      password_wont_change: "Ваш пароль не изменится, пока вы не пройдете по ссылке и не установите новый."
+      you_can_confirm_below: "Вы можете подтвердить регистрацию, пройдя по ссылке ниже:"
+      confirm_account: "Подтвердить регистрацию"
