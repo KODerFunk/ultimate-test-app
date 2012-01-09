@@ -15,7 +15,7 @@ Ultimate::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-  # Devise setup step #1
+  # * Devise setup step #1
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger
@@ -29,4 +29,8 @@ Ultimate::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # * disable log messages from dev_tweaks to keep things a bit more tidy in logs
+  config.dev_tweaks.log_autoload_notice = false
+
 end

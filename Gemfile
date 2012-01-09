@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'thin'
 gem 'rails', '3.1.3'
 
 gem 'russian', '~> 0.6.0'
@@ -17,8 +18,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 gem 'haml'
+gem 'jquery-rails'
+
+#gem 'ultimate-base', path: '~/Dropbox/Job/ultimate/ultimate-base'
+gem 'ultimate-base', git: 'git@github.com:KODerFunk/ultimate-base.git'
+#gem 'ultimate-flash', path: '~/work/gems/ultimate-flash'
+gem 'ultimate-flash', git: 'git@github.com:KODerFunk/ultimate-flash.git'
+
+group :development do
+  gem 'rails-dev-tweaks'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
