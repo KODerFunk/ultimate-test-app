@@ -1,0 +1,53 @@
+.g-button {
+  width: 100%;
+  height: 29px;
+  padding: 0 15px;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: #edd;
+  @include border-radius(4px);
+  @include linear-gradient(#ffea00, #c8a900);
+  @include box-shadow(0 1px 1px $c-pitch-black);
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  color: $c-black;
+  @include text-shadow($c-white, 0 1px 1px);
+  @include pie;
+  &:hover {
+    @include linear-gradient(#ff7, #db7);
+  }
+  &:active {
+    margin-top: 1px;
+    margin-bottom: -1px;
+    @include box-shadow(0 0 1px $c-black);
+    @include linear-gradient(#db7, #ff7);//#c8a900, #ffea00);
+  }
+  &.blue {
+    border-top-color: #84b8e0;
+    @include linear-gradient(#1a93da, #007dc6);
+    color: $c-white;
+    @include text-shadow(none);
+    &:hover {
+      @include linear-gradient(#3ae, #28d);
+    }
+    &:active {
+      @include linear-gradient(#28d, #3ae);//#007dc6, #1a93da);
+    }
+  }
+}
+
+input.g-button {
+  padding-bottom: 1px;
+}
+
+a.g-button {
+  position: relative;
+  display: block;
+  @include box-sizing;
+  text-align: center;
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
+  }
+}

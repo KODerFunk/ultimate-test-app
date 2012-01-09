@@ -1,0 +1,122 @@
+.static-page {
+  min-width: 840px;
+  padding: 0 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  > .container {
+    margin: 20px 0;
+    @include text-shadow(none);
+    p {
+      margin: 20px 0;
+    }
+  }
+
+  &.event-list {
+    padding: 0;
+    color: $c-pitch-black;
+    @include text-shadow($c-white, 0 1px 0);
+    > table.grid {
+      margin-right: 25px;
+      line-height: 25px;
+      white-space: nowrap;
+      tr {
+        cursor: pointer;
+        &:hover, &.active, &.state-history {
+          background: #d8d8d8 image_url("layout/noise.png") center top repeat;
+        }
+        td {
+          padding: 10px 20px;
+          > a {
+            display: block;
+            margin: -10px -20px;
+            padding: 10px 20px;
+            color: $c-pitch-black;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          span.light {
+            color: #686860;
+            cursor: pointer;
+          }
+          span.green {
+            color: #489738;
+          }
+          span.red {
+            color: #ec4343;
+          }
+          &.state {
+            padding-left: 60px;
+            padding-right: 40px;
+            > a {
+              margin-left: -60px;
+              margin-right: -40px;
+              padding-left: 60px;
+              padding-right: 40px;
+            }
+            span.stamp {
+              display: block;
+              padding: 0 15px;
+              border-width: 1px;
+              border-style: solid;
+              text-transform: uppercase;
+              text-align: center;
+              cursor: pointer;
+              @include text-shadow(none);
+              &.considering,
+              &.accepted {
+                border-color: #6887e7;
+                color: #6887e7;
+              }
+              &.paid,
+              &.closed {
+                border-color: #489738;
+                color: #489738;
+              }
+              &.expired {
+                border-color: #ec4343;
+                color: #ec4343;
+              }
+            }
+          }
+        }
+        &.state-history {
+          display: none;
+        }  
+      }
+    }
+    > a.more {
+      display: block;
+      padding: 10px 20px;
+      text-align: center;
+      color: $c-gray;
+      font-size: 20px;
+      line-height: 22px;
+      &:hover {
+        background: #d8d8d8 image_url("layout/noise.png") center top repeat;
+        color: $c-black;
+      }
+    }
+    > .no-info {
+      padding: 20px;
+      width: 250px;
+    }
+  }
+
+  &.help {
+    > .container {
+      margin-left: 30px;
+      > h4 {
+        position: relative;
+        > .index {
+          position: absolute;
+          right: 100%;
+          top: 0;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,55 @@
+> .l-page__header {
+  min-height: 50px;
+  padding: 20px 40px 15px 30px;
+  background: #f3f3f3 image_url("#{$images-path}/top_bg-light.png") repeat;
+  border-bottom: 1px solid #3e3e3e;
+  z-index: 9001; // under pop-up back overlay
+  overflow: hidden;
+  > a.logo {
+    display: block;
+    float: left;
+  }
+  > a.lang {
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 37px;
+    top: 29px;
+    background-repeat: no-repeat;
+    @include _lang('ru');
+    @include _lang('en');
+  }
+  /*.technical-support {
+    position: absolute;
+    right: 100px;
+    top: 37px;
+    line-height: 20px;
+    color: $c-gray;
+    >.contact {
+      @include inline-block();
+      padding-left: 25px;
+      color: $c-black;
+      &.icq {
+        margin-left: 15px;
+        background: image_url("/icons/icq.png") no-repeat left top;
+      }
+      &.skype {
+        margin-left: 10px;
+        background: image_url("/icons/skype.png") no-repeat left top;
+      }
+    }
+  }*/
+  .devise-links {
+    position: absolute;
+    right: 105px;
+    top: 36px;
+    a {
+      font-size: 13px;
+      color: $c-black;
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+}

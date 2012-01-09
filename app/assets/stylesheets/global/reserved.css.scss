@@ -1,0 +1,47 @@
+@import "import/base";
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.uline {
+  text-decoration: underline;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  @include inline-block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+a.image {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.no-info, .loading {
+  font-style: italic;
+}
+
+.development {
+  @include opacity(0.5);
+}

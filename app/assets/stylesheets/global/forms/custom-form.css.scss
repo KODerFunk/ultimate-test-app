@@ -1,0 +1,70 @@
+.custom-form {
+  /*fieldset {*/
+    /*padding: 10px 10px 3px;*/
+    /*margin-bottom: 30px;*/
+    /*legend {*/
+      /*@include g-box__title;*/
+    /*}*/
+  /*}*/
+  label {
+    @include inline-block;
+    vertical-align: middle;
+    font-weight: normal;
+    &.with-error {
+      color: $c-red;
+    }
+  }
+  .required {
+    @include inline-block;
+    padding-left: 3px;
+  }
+  /*.input-line {*/
+    /*margin-top: 7px;*/
+    /*label {*/
+      /*line-height: 23px;*/
+    /*}*/
+    /*.g-text-field {*/
+      /*@include inline-block;*/
+      /*vertical-align: middle;*/
+    /*}*/
+    /*.field_with_errors {*/
+      /*@include inline-block;*/
+      /*vertical-align: top;*/
+    /*}*/
+  /*}*/
+  table.grid {
+    th {
+      padding: 0 20px 20px 0;
+      text-align: right;
+      white-space: nowrap;
+      label {
+        line-height: 30px;
+      }
+    }
+    td {
+      padding: 0 0 20px;
+    }
+    .hint {
+      margin-bottom: 8px;
+      color: $c-gray;
+    }
+  }
+  .field_with_errors {
+    /*@include inline-block;*/
+    /*vertical-align: top;*/
+    margin-bottom: -5px;
+    > .hint {
+      color: $c-red !important;
+    }
+    > .error {
+      margin: 5px 0 0;
+      color: $c-red;
+    }
+    > .g-text-field, > .g-text-area {
+      input, textarea {
+        border-color: #ca9797 #d4d4d4 #d4d4d4;
+        background-color: #ffd3d3;
+      }
+    }
+  }
+}

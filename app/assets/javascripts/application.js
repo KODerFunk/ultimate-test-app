@@ -10,3 +10,4 @@
 //= require ultimate/underscore/underscore
 //= require ultimate/improves/form
 //= require_all ./ultimate
+//= require_directory ./global

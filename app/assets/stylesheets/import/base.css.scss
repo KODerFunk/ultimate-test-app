@@ -1,0 +1,45 @@
+@import "b-evrone";
+
+$font-family_base: "Trebuchet MS", Tahoma, Arial, sans-serif;
+$font-size_base: 13px;
+
+$l-page__width: 1000px;
+$l-page__column_right__width: 380px;
+$l-page__half-width: $l-page__width / 2;
+$l-page__header__height: 87px;
+
+$c-pitch-black: #000000;
+$c-black: #333333;
+$c-gray: #969696;
+$c-dark-gray: #4b4b4b;
+$c-white: #ffffff;
+$c-blue: #00a1ff;
+$c-red: #e00;
+$c-pink: #fbb;
+$c-placeholder: #999999;
+$c-noise-blue: #0179be;
+$c-popup-blue: #1792d9;
+$c-noise-green: #3f8601;
+$c-popup-green: #549f02;
+$c-noise-gray: #a3a3a3;
+$c-popup-gray: #cacaca;
+$extra-themes: 4;
+
+@mixin invert_link_decoration($class: '') {
+  a#{$class} {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin l-page__center($switch: true) {
+  @if ( $switch ) {
+    min-width: $l-page__width;
+    margin: 0 auto;
+  } @else {
+    width: auto;
+    margin: 0;
+  }
+}

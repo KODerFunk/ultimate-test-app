@@ -1,0 +1,101 @@
+.g-file {
+  line-height: 20px;
+  .title {
+    @include inline-block;
+    padding-left: 25px;
+    font-size: 12px;
+    background: url("#{$images-path}/file-icons.png") left 0 no-repeat;
+  }
+  a {
+    margin-left: 20px;
+    font-size: 11px;
+    &.link {
+      color: green;
+      border: none !important;
+      text-decoration: underline !important;
+    }
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+}
+
+
+.g-file-field {
+  @include inline-block;
+  height: 31px;
+  padding-right: 130px;
+  vertical-align: middle;
+  > .g-text-field {
+  }
+  > .g-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 85px;
+    overflow: hidden;
+    input[type="file"] {
+      position: absolute;
+      right: -10px;
+      top: 0;
+      width: auto;
+      height: 100%;
+      font-size: 32px;
+      @include opacity(0);
+      cursor: pointer;
+      z-index: 1;
+    }
+  }
+}
+
+.g-file-list {
+  > .g-file-list__list {
+    margin: 10px 0;
+    line-height: 20px;
+    .item {
+      padding-left: 25px;
+      background: url("#{$images-path}/file-icons.png") left 0 no-repeat;
+      &.proto {
+        display: none;
+      }
+      > .file-name {
+        font-size: 12px;
+      }
+      > a.remove {
+        margin-left: 10px;
+        color: $c-red;
+        border-bottom-color: $c-red;
+      }
+      > input[type="file"] {
+        display: none;
+      }
+    }
+    a.item {
+      @include inline-block;
+      font-size: 12px;
+      border-bottom: none !important;
+      span {
+        text-decoration: underline !important;
+      }
+      &:hover span {
+        text-decoration: none !important;
+      }
+    }
+  }
+  > .g-file-list__add-wrapper {
+    @include inline-block;
+    overflow: hidden;
+    > .g-button {
+      width: 110px;
+    }
+    > input[type="file"] {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      font-size: 32px;
+      @include opacity(0);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.g-text-field, .g-text-area {
+  border-top: 1px solid #404040;
+  @include border-radius(4px);
+  @include pie;
+  > .wrapper {
+    *margin-top: -1px;
+    padding: 0 12px 0 0;
+    > input,
+    > textarea {
+      @include border-radius(3px);
+      @include pie;
+      width: 100%;
+    }
+    > input {
+      height: 28px;
+      line-height: 30px;
+      font-size: 21px;
+      padding: 0 5px;
+    }
+  }
+  &.disabled, &.readonly {
+    > .wrapper {
+      > input,
+      > textarea {
+        color: $c-gray;
+      }
+    }
+  }
+}
+
+.g-text-area {
+  > .wrapper {
+    > textarea {
+      height: 130px;
+    }
+  }
+}

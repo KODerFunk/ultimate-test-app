@@ -1,0 +1,140 @@
+.custom-form.user {
+  min-width: 420px;
+  padding: 40px 50px 25px;
+  table.grid {
+    @include invert_link_decoration;
+    th {
+      .g-button {
+        @include inline-block;
+        width: auto;
+      }
+      label.with-error {
+        color: $c-pink;
+      }
+      .required {
+        display: none;
+      }
+      &.middle {
+        vertical-align: middle;
+      }
+    }
+    td {
+      width: 245px;
+      &.links {
+        line-height: 30px;
+      }
+      &.side {
+        width: 125px;
+        padding-left: 60px;
+        > .wide-button-wrapper {
+          margin: 0 -32px 0 -10px;
+        }
+        > .side-hint {
+          padding-top: 8px;
+          font-size: 16px;
+          line-height: 20px;
+        }
+        &.links > a {
+          position: absolute;
+        }
+      }
+      &.dns-help {
+        padding: 10px 0 30px;
+        > p.short {
+          white-space: nowrap;
+        }
+        > .dns-domains {
+          font-size: 18px;
+          margin: 10px 0;
+        }
+        > a.how-do {
+        }
+        > p.help {
+          margin-top: 10px;
+        }
+      }
+      &.image-cell {
+        > .upload {
+          > .inline-hint {
+            margin-bottom: 10px;
+          }
+          > a.cancel-uploading {
+          }
+        }
+        > .loaded {
+          > img.partner-logo {
+            vertical-align:  middle;
+          }
+          > a.remove-image {
+            margin-left: 15px;
+          }
+        }
+      }
+      &.theme-picker {
+        > .theme {
+          display: block;
+          float: left;
+          width: 40px;
+          height: 40px;
+          margin-left: 10px;
+          border: 1px solid #9FC;
+          @include border-radius(5px);
+          @include transition(box-shadow, 0.1s);
+          @include pie;
+          &.theme_0 {
+            background: image_url("layout/top_bg-dark.png") repeat;
+          }
+          @for $i from 1 through $extra-themes {
+            &.theme_#{$i} {
+              background: image_url("layout/top_bg-dark#{$i}.png") repeat;
+            }
+          }
+          &.picked {
+            width: 38px;
+            height: 38px;
+            border: 2px solid white;
+            @include box-shadow(0 0 3px black);
+          }
+          &:hover {
+            @include box-shadow(0 0 5px white);
+          }
+        }
+      }
+      /*&.submit-wrapper {*/
+        /*.g-button {*/
+          /*display: block;*/
+        /*}*/
+      /*}*/
+    }
+  }
+  .password.self-set {
+    display: none;
+  }
+  .field_with_errors {
+    > .hint {
+      color: $c-pink !important;
+    }
+    > .error {
+      color: $c-pink;
+    }
+  }
+  &.show {
+    table.grid {
+      th {
+        font-size: 14px;
+        line-height: 20px;
+        vertical-align: bottom !important;
+      }
+      td {
+        font-size: 20px;
+        line-height: 24px;
+        vertical-align: bottom !important;
+      }
+    }
+  }
+}
+
+.jump-up.blue .b-window .custom-form.user {
+  min-width: 605px;
+  background: image_url("jump-up/column-separator.png") 500px center no-repeat;
+}

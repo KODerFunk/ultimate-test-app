@@ -1,4 +1,4 @@
-Ultimate::Application.routes.draw do
+UltimateTestApp::Application.routes.draw do
 
   devise_for :users
   resources :users

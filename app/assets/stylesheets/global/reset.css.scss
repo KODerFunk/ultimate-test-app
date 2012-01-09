@@ -1,0 +1,88 @@
+@import "import/base";
+
+body {
+  @include g-font_base;
+  min-width: $l-page__width;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  color: $c-black;
+  background: #757575 image_url("layout/top_bg-dark.png") center top repeat;
+  @for $i from 1 through $extra-themes {
+    &.theme_#{$i} {
+      background-image: image_url("layout/top_bg-dark#{$i}.png");
+    }
+  }
+}
+
+img {
+  border: 0;
+  vertical-align: bottom;
+}
+
+div, input {
+  position: relative;
+}
+
+header, nav, aside, section, article, footer {
+  display: block;
+  position: relative;
+}
+
+input::-moz-focus-inner { border: 0; padding: 0; };
+
+h1, h2, h3, h4, h5, h6 {
+  /* mb not here */
+  margin: 0;
+  font-weight: normal;
+}
+
+@mixin hx($n, $size, $margin: false) {
+  h#{$n} {
+    font-size: $size;
+    line-height: $size + $line-height-addition_base;
+    @if $margin {
+      margin: $margin;
+    }
+  }
+}
+@include hx(1, 38px);
+@include hx(2, 36px);
+@include hx(3, 21px);
+@include hx(4, 18px);
+@include hx(5, 14px);
+@include hx(6, 12px);
+
+p {
+  margin: 0;
+  cursor: text;
+}
+
+span {
+  cursor: default;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  span, p {
+    cursor: pointer;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    > th, > td {
+      padding: 0;
+      vertical-align: top;
+    }
+    > th {
+      font-weight: normal;
+    }
+  }
+}

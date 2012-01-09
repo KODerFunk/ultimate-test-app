@@ -1,0 +1,364 @@
+// ==============================
+//
+//  .b-evrone
+//    front-end framework
+//    0.793 beta / 2010-2011
+//    Karpunin Dmitry / Evrone.com
+//    koderfunk_at_gmail_dot_com
+//  TODO: reorganize (split to fonts, css3, decorations, ...)
+//  TODO: create gem
+
+// === overloadable in base.scss settings =========
+
+$font-family_base: Tahoma, Verdana, sans-serif;
+$font-size_base: 11px;
+$line-height-addition_base: 3px;
+$font-family_accident: "PFDinTextCondProThin", Tahoma, Arial, Verdana, sans-serif;
+$font-family_accident_bold: "PFDinTextCondProRegular";
+$pie-url: "PIE.htc";
+
+
+// === structures ===============
+
+@mixin g-line {
+  *zoom: 1;
+  _height: 0;
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}
+
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+@mixin g-justify($item: unquote(".item")) {
+  text-align: justify;
+  *text-justify: newspaper;
+  > #{$item}, > .end-line {
+    @include inline-block;
+  }
+  > .end-line {
+    height: 0;
+    line-height: 0;
+    width: 99%;
+  }
+}
+
+@mixin inline-block-list($item: "li") {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  #{$item} {
+    @include inline-block;
+  }
+}
+
+@mixin block-list($item: "li") {
+  @include g-line;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  #{$item} {
+    display: block;
+    position: relative;
+    float: left;
+  }
+}
+
+@mixin simple-block-list($item: "li") {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  #{$item} {
+    display: block;
+    position: relative;
+  }
+}
+
+// назначается блокам, которые пропадают после анимации в ИЕ6-7
+@mixin fix-disapp {
+  *overflow: hidden;
+  _zoom: 1;
+}
+
+@mixin pie {
+  @if $pie-url {
+    behavior: stylesheet_url("#{$pie-url}");
+  }
+}
+
+@mixin border-radius($params) {
+  -webkit-border-radius: $params;
+  -moz-border-radius: $params;
+  border-radius: $params;
+}
+
+@mixin box-shadow($params, $moz-params: false) {
+  @if $moz_params {
+    // TODO
+  } @else {
+    $moz_params: $params;
+  }
+  box-shadow: $params;
+  -webkit-box-shadow: $params;
+  -moz-box-shadow: $moz-params;
+}
+
+// !!! IE6-7 NOT SUPPORTED !!!
+@mixin box-sizing($params: border-box) {
+  -webkit-box-sizing: $params;
+  -moz-box-sizing: $params;
+  box-sizing: $params;
+}
+
+// !!! EXPERIMENTAL !!!
+// @include linear-gradient(white, $c-black, left)
+@mixin linear-gradient($color_start, $color_stop, $start: top, $pie: true) {
+  @if $start == top {
+    $wk_start: left top;
+    $wk_stop: left bottom;
+  } @else if $start == "left" {
+
+  }
+  $wk_start: left top;
+  $wk_stop: left bottom;
+  background-color: $color_start / 2 + $color_stop / 2;
+  background-image: -webkit-gradient(linear, $wk_start, $wk_stop, from($color_start), to($color_stop));
+  background-image: -moz-linear-gradient($start, $color_start, $color_stop);
+  background-image: -o-linear-gradient($start, $color_start, $color_stop);
+  background-image: linear-gradient($start, $color_start, $color_stop);
+  @if $pie {
+    -pie-background: linear-gradient($start, $color_start, $color_stop);
+  }
+}
+
+@mixin border-gradient($color_start, $color_stop, $is_horizontal: false) {
+  $start: top;
+  $wk_start: left top;
+  $wk_stop: left bottom;
+  @if $is_horizontal {
+    $start: left;
+    $wk_stop: right top;
+  } @else {
+    $start: top;
+    $wk_stop: left bottom;
+  }
+  border-color: $color_start $color_start / 2 + $color_stop / 2 $color_stop;
+  -webkit-border-image: -webkit-gradient(linear, $wk_start, $wk_stop, from($color_start), to($color_stop));
+  -moz-border-image: -moz-linear-gradient($start, $color_start, $color_stop);
+  -o-border-image: -o-linear-gradient($start, $color_start, $color_stop);
+  border-image: linear-gradient($start, $color_start, $color_stop);
+}
+
+@mixin opacity($value: 0.5) {
+  opacity: $value;
+  $value: $value * 100;
+  @if $value < 100 {
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=#{$value});
+  } @else {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  }
+}
+
+@mixin text-shadow($color, $params: none, $direction: 180, $strength: 1) {
+  @if $color == none {
+    text-shadow: none;
+    //filter: progid:DXImageTransform.Microsoft.Shadow(enabled=false);
+  } @else {
+    text-shadow: $color $params;
+    //filter: progid:DXImageTransform.Microsoft.Shadow(Color=#{$color}, Direction=#{$direction}, strength=#{$strength});
+  }
+}
+
+@mixin transition($what, $time, $method: ease) {
+  -webkit-transition: $what $time $method;
+  -moz-transition: $what $time $method;
+  -o-transition: $what $time $method;
+  transition: $what $time $method;
+}
+
+@mixin transform($params) {
+  -webkit-transition: $params;
+  -moz-transition: $params;
+  -o-transition: $params;
+  transition: $params;
+}
+
+@mixin font-face($family, $url-without-ext, $font-weight: normal) {
+  @font-face {
+    font-family: "#{$family}";
+    src: font_url("#{$url-without-ext}.eot");
+    src: font_url("#{$url-without-ext}.eot?#iefix") format("embedded-opentype"),
+         font_url("#{$url-without-ext}.woff") format("woff"),
+         font_url("#{$url-without-ext}.ttf") format("truetype"),
+         font_url("#{$url-without-ext}.svg##{$family}") format("svg");
+    font-weight: $font-weight;
+    font-style: normal;
+  }
+}
+
+@mixin g-font_base($font-size: $font-size_base, $line-height: false) {
+  font-family: $font-family_base;
+  @if $font-size {
+    font-size: $font-size;
+  }
+  @if $line-height {
+    line-height: $line-height;
+  } @else {
+    @if $font-size {
+      line-height: $font-size + $line-height-addition_base;
+    }
+  }
+}
+
+@mixin g-font_accident_bold($font-size: false, $line-height: false) {
+  font-family: $font-family_accident_bold;
+  font-weight: normal;
+  font-style: normal;
+  @if $font-size {
+    font-size: $font-size;
+  }
+  @if $line-height {
+    line-height: $line-height;
+  } @else {
+    @if $font-size {
+      line-height: $font-size + $line-height-addition_base;
+    }
+  }
+}
+
+@mixin g-font_accident($font-size: false, $line-height: false) {
+  font-family: $font-family_accident;
+  font-weight: normal;
+  font-style: normal;
+  @if $font-size {
+    font-size: $font-size;
+  }
+  @if $line-height {
+    line-height: $line-height;
+  } @else {
+    @if $font-size {
+      line-height: $font-size + $line-height-addition_base;
+    }
+  }
+  @if $font-family_accident_bold {
+    .bold {
+      @include g-font_accident_bold;
+    }
+  }
+}
+
+
+@mixin sticky-footer($layout-padding-bottom, $footer-selector: ".l-page__footer", $layout-selector: ".l-page") {
+  html {
+    height: 100%;
+  }
+  body {
+    position: relative;
+    min-height: 100%;
+  }
+  #{$layout-selector} {
+    position: static;
+    padding-bottom: $layout-padding-bottom;
+    #{$footer-selector} {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+
+@mixin g-decor_state($offset, $sprite-offset, $state-index: 1) {
+  $state-offset: $offset + $sprite-offset * 3 * $state-index;
+  > .fill {
+    background-position: center (0 - $state-offset) !important;
+  }
+  > .left {
+    background-position: left (0 - $state-offset - $sprite-offset) !important;
+  }
+  > .right {
+    background-position: right (0 - $state-offset - $sprite-offset * 2) !important;
+  }
+}
+
+@mixin g-decor_type($texture, $offset, $sprite-offset, $decor_width: false) {
+  @if $decor_width {
+    padding: 0 $decor_width;
+    > .left, > .right {
+      width: $decor_width + 1 !important;
+    }
+  }
+  > .fill, > .left, > .right {
+    background-image: image_url("#{$texture}") !important;
+  }
+  @include g_decor_state($offset, $sprite-offset, 0);
+}
+
+@mixin g-decor($decor_width, $texture: false, $offset: 0, $sprite-offset: 0, $height: false) {
+  position: relative;
+  white-space: nowrap;
+  @if $height {
+    height: $height;
+  }
+  > .fill {
+    display: block;
+    position: relative;
+    height: 100%;
+  }
+  > .left, > .right {
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+  @if $texture {
+    @include g_decor_type($texture, $offset, $sprite-offset, $decor_width);
+  }
+  > .left {
+    left: 0;
+  }
+  > .right {
+    right: 0;
+  }
+}
+
+@mixin g-star-decor_state($sprite-offset, $state) {
+  $offset_top: 0 - ($state * $sprite-offset * 2);
+  $offset_bottom: $offset_top - $sprite-offset;
+  > .corner {
+    &.left.top { background-position: right $offset_bottom; }
+    &.right.top { background-position: left $offset_bottom; }
+    &.left.bottom { background-position: right $offset_top; }
+    &.right.bottom { background-position: left $offset_top; }
+  }
+}
+
+@mixin g-star-decor($texture, $size, $sprite-offset, $state: 0) {
+  > .corner {
+    width: $size;
+    height: $size;
+    position: absolute;
+    background: image_url("#{$texture}") no-repeat;
+    &.left { left: 0; }
+    &.right { right: 0; }
+    &.top {
+      top: 0;
+      *top: 1px;
+    }
+    &.bottom {
+      bottom: 0;
+      *bottom: 1px;
+    }
+  }
+  @include g-star-decor_state($sprite-offset, $state);
+}

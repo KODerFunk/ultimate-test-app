@@ -1,0 +1,29 @@
+$footer__offset: 50px;
+
+> .l-page__footer {
+  height: 37px;
+  background: #4d4d4d image_url("layout/noise_4d.png") repeat center center;
+  @include box-shadow(inset 0 1px 1px #111);
+  @include pie;
+  line-height: 37px;
+  font-size: 14px;
+  color: $c-white;
+  > .copyright {
+    position: absolute;
+    left: $footer__offset;
+  }
+  > nav.menu {
+    position: absolute;
+    right: $footer__offset;
+    font-size: 12px;
+    span, a {
+      margin: 0 10px;
+    }
+    a {
+      color: $c-white;
+    }
+    img {
+      vertical-align: middle;
+    }
+  }
+}
